@@ -4,24 +4,25 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="images/favicon.png">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Architect Theme by Jason Long</title>
+    <title>IoT Assistant</title>
   </head>
 
   <body>
     <header>
-      <div class="inner">
-        <h1>Architect Theme</h1>
-        <h2>Open Source version of the GitHub Pages theme</h2>
-        <a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
+      <div class="inner">	
+        <h1><img src="images/favicon.png">IoT Assistant</h1>
+        <h2>Open-source web app intended to make it quick and easy for anyone to manage their programmed Internet of Things devices</h2>
+        <img class="preview" src="images/Captura-landscape.png">
       </div>
     </header>
 
@@ -29,39 +30,97 @@
       <div class="inner clearfix">
         <section id="main-content">
 
-        <h1>Headline 1</h1>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
+        <h1>What is IoT Assistant?</h1>
+        <p>IoT Assistant is an open-source web application. It enables to manage <b>sensors</b>, <b>actuators</b>, <b>GPS's</b> and <b>cameras</b> interfaced with <a href="https://www.thethingsnetwork.org/"><b>The Things Network</b></a> or via <b>MQTT</b> or <b>HTTP</b>.</p>
+		<p>The app is based in <b>Java Spring Boot</b> and ready to be run on any machine hosting a JVM like any <b>Windows, Mac or Linux laptop</b> or on a cheap board (ie a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>).</p>
+		<p>It should meet the needs of most users right from the start, prioritizing <b>simplicity</b> over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing it or integrating it with Aqara or Tuya devices.</p>
+		<h2>Main functionalities</h2>
+			<ul>
+				<li>Get sensors values.</li>
+				<li>Get or set actuators values.</li>
+				<li>Get pictures from cameras in real time.</li>
+				<li>Get GPSs positions.</li>
+				<li>Get notifications if some device fails communicating its state within some defined time period.</li>
+				<li>Get customizables graphs to visualize sensor values change over time.</li>
+				<li>Set rules:
+					<ul>
+						<li>Get notifications if a sensor value reach (<, >, =, >=) some threshold.
+						<li>Set a predefined actuator value when a sensor value reach some threshold.
+						<li>Get notifications if a GPS position exceeds some range from some predefined position.
+						<li>Get a camera picture when a sensor value reach some threshold.
+						<li>Enable/Disable some rule when a sensor value reach some threshold.
+					</ul>
+				</li>
+			</ul> 
+		<p>Notifications are supported via web or <b>Telegram</b>. For a complete list of <b>Use Cases</b> see this.
 
-        <div class="highlight">
-        <pre><span class="nb">require</span> <span class="s1">'redcarpet'</span>
-<span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">markdown</span><span class="o">.</span><span class="n">to_html</span></pre>
-        </div>
+		<h2>Getting started</h2>
+        <p>The only step needed to run IoT Assistant is to execute the <b>.jar</b> file contained in the <b>.zip</b> file you can download from the top of this page. Execute it by double-click on it or via command line:</p>
+		    <div class="highlight">
+				<pre><span class="nb">#</span> <span class="n">java -jar iot-assistant-0.0.1.jar</span></pre>
+			</div>
+		<p>Depending on the Java version you may need to execute it this way:</p>
+			<div class="highlight">
+				<pre><span class="nb">#</span> <span class="n">java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED -jar iot-assistant-0.0.1.jar</span></pre>
+			</div>
+		<p>Once it is running you should see IoT Assistant login page here: <a href="http://localhost:8080">http://localhost:8080</a>
+		<a href="images/Captura2.png">
+			<img  src="images/Captura2.png">
+		</a>
+		<p>In order to get notifications via <b>Telegram</b> and connect to your <b>MQTT</b> and <b>TTN</b> devices you need to edit the <b>application.properties</b> file first.
+        <h3>Application.properties</h2>
+		<div class="highlight">
+			<pre><span class="nb">#</span> <span class="n"># =========
+# TELEGRAM 
+# =========
+bot.token=1536473990:AAEepoU1vv3-NNrH3tMUQ9x-Qgk6UHIu5kk
+bot.chatid=743595103
+bot.username=StationAssistantBot
 
-        <h2>Headline 2</h2>
+
+# =========
+# PLATFORM 
+# =========
+platform=pc
+
+
+# =========
+# MQTT 
+# =========
+mqtt.broker.url=ssl://7f6a0b40dedf4d84b0c1f6250c512408.s1.eu.hivemq.cloud:8883
+mqtt.folderpersistence=/tmp
+mqtt.clientid=LAPTOP-C2D8LU2Q 
+mqtt.username=miguel
+mqtt.password=Pozadelasal.10
+
+# =========
+# TTN
+# =========
+
+ttn.mqtt.broker.url=ssl://eu1.cloud.thethings.network:8883
+ttn.mqtt.folderpersistence=/tmp
+ttn.mqtt.clientid=LAPTOP-C2D8LU2Q 
+ttn.mqtt.username=iot-assistant@ttn
+ttn.mqtt.password=NNSXS.QZL5PUZCS673KRDNKBBAVNQFNB626YGAZJRHMTQ.UBUAYBBAIGQ3OWO7QQTGVUF7KGY7DWKPFY3C4W7R6TQITN6EBLQA
+
+</span></pre>
+		</div>
         <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
-        <h3>Headline 3</h3>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
-        <h4>Headline 4</h4>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
-        <h5>Headline 5</h5>
+        <h2>Run IoT Assistant</h2>
+		
+		<h5>Headline 5</h5>
         <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
         <h6>Headline 6</h6>
         <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>        </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/jasonlong/architect-theme/archive/master.zip" class="button">
+          <a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+		  <a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">IoT Assistant</a> is maintained by <a href="https://github.com/jasonlong">Miguel Bernabé</a>.</p>
 
-          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
       </div>
     </div>
