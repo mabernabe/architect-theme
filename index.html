@@ -22,81 +22,93 @@
       <div class="inner">	
         <h1><img src="images/favicon.png">IoT Assistant</h1>
         <h2>Open-source web app intended to make it quick and easy for anyone to manage their programmed Internet of Things devices</h2>
-        <img class="preview" src="images/Captura-landscape.png">
+        <img class="preview" src="images/captura.jpg">
       </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
+			<h1>What is IoT Assistant?</h1>
+			<p>IoT Assistant is an open-source web application that enables to manage things (sensors, actuators, GPS's and cameras) interfaced via MQTT, HTTP or with <a href="https://www.thethingsnetwork.org/"><b>The Things Network</b></a>.</p>
+			<h2>Java-based</h2>
+			<p>The app is based in <b>Java Spring Boot</b> and its ready to be run on any machine hosting a JVM like any Windows, Mac or Linux computer or some cheap board (ie a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>) without the need to virtualize or install third party apps or cloud services.</p>
+			<h2>Quick and Easy</h2>
+			<p>It should meet the needs of most users right from the start, prioritizing simplicity over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing it or integrating it with third party devices like Aqara or Tuya.</p>
+			<h2>Main functionalities</h2>
+				<ul>
+					<li>Get sensors values.</li>
+					<li>Get and set actuators values.</li>
+					<li>Get cameras pictures in real time.</li>
+					<li>Get GPSs positions.</li>
+					<li>Get notifications if some device fails communicating its state within some defined time period.</li>
+					<li>Get customizables graphs to visualize sensor values change over time.</li>
+					<li>Set rules:
+						<ul>
+							<li>Get notifications if a sensor value reach some threshold.
+							<li>Set some actuator value when a sensor value reach some threshold.
+							<li>Get notifications if a GPS position exceeds some range from some position.
+							<li>Get camera picture if a sensor value reach some threshold.
+							<li>Enable/Disable some rule if a sensor value reach some threshold.
+						</ul>
+					</li>
+				</ul> 
+			<p>Notifications are supported via web or <b>Telegram</b>. For a complete list of Use Cases see this.
 
-        <h1>What is IoT Assistant?</h1>
-        <p>IoT Assistant is an open-source web application. It enables to manage <b>sensors</b>, <b>actuators</b>, <b>GPS's</b> and <b>cameras</b> interfaced with <a href="https://www.thethingsnetwork.org/"><b>The Things Network</b></a> or via <b>MQTT</b> or <b>HTTP</b>.</p>
-		<p>The app is based in <b>Java Spring Boot</b> and ready to be run on any machine hosting a JVM like any <b>Windows, Mac or Linux laptop</b> or on a cheap board (ie a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>).</p>
-		<p>It should meet the needs of most users right from the start, prioritizing <b>simplicity</b> over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing it or integrating it with Aqara or Tuya devices.</p>
-		<h2>Main functionalities</h2>
-			<ul>
-				<li>Get sensors values.</li>
-				<li>Get or set actuators values.</li>
-				<li>Get pictures from cameras in real time.</li>
-				<li>Get GPSs positions.</li>
-				<li>Get notifications if some device fails communicating its state within some defined time period.</li>
-				<li>Get customizables graphs to visualize sensor values change over time.</li>
-				<li>Set rules:
-					<ul>
-						<li>Get notifications if a sensor value reach (<, >, =, >=) some threshold.
-						<li>Set a predefined actuator value when a sensor value reach some threshold.
-						<li>Get notifications if a GPS position exceeds some range from some predefined position.
-						<li>Get a camera picture when a sensor value reach some threshold.
-						<li>Enable/Disable some rule when a sensor value reach some threshold.
-					</ul>
-				</li>
-			</ul> 
-		<p>Notifications are supported via web or <b>Telegram</b>. For a complete list of <b>Use Cases</b> see this.
-
-		<h2>Getting started</h2>
-        <p>The only step needed to run IoT Assistant is to execute the <b>.jar</b> file contained in the <b>.zip</b> file you can download from the top of this page. Execute it by double-click on it or via command line:</p>
-		    <div class="highlight">
-				<pre><span class="nb">#</span> <span class="n">java -jar iot-assistant-0.0.1.jar</span></pre>
-			</div>
-		<p>Depending on the Java version you may need to execute it this way:</p>
+			<h2>Getting started</h2>
+			<p>The only step needed to run IoT Assistant is to execute the <b>.jar</b> file contained in the <b>.zip</b> file provided above. Execute it by double-click on it or via command line this way:</p>
+				<div class="highlight">
+					<pre><span class="nb">#</span> <span class="n">java -jar iot-assistant-0.0.1.jar</span></pre>
+				</div>
+			<p>Depending on the Java version you may need to execute it this way:</p>
+				<div class="highlight">
+					<pre><span class="nb">#</span> <span class="n">java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED -jar iot-assistant-0.0.1.jar</span></pre>
+				</div>
+			<p>Once it is running you should see IoT Assistant login page at <a href="http://localhost:8080">http://localhost:8080</a>
+			<a href="images/Captura2.png">
+				<img  src="images/Captura2.png">
+			</a>
+			<p>Default login user and password is <i>admin iotassistant</i>. Once logged in, click on system to get interfaces (Telegram, MQTT, TTN) status.  	
+			<a href="images/system.png">
+				<img  src="images/system.png">
+			</a>		
+			<p>In order to get notifications via Telegram and connect your MQTT and TTN devices you need to edit the <b>application.properties</b> file before launching the app.</p>
+			<h3>Application.properties</h2>
 			<div class="highlight">
-				<pre><span class="nb">#</span> <span class="n">java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED -jar iot-assistant-0.0.1.jar</span></pre>
+				<pre>
+					<span class="nb">#Telegram</span>
+					<span class="n">#bot.token=</span>
+					<span class="n">#bot.chatid=</span>
+					<span class="n">#bot.username=</span>
+					<span class="n"></span>
+					<span class="nb">#MQTT</span>
+					<span class="n">#mqtt.broker.url=</span>
+					<span class="n">#mqtt.folder=</span>
+					<span class="n">#mqtt.clientid=</span>
+					<span class="n">#mqtt.username=</span>
+					<span class="n">#mqtt.password=</span>
+					<span class="n"></span>
+					<span class="nb">#The Things Network</span>
+					<span class="n">#ttn.mqtt.broker.url=</span>
+					<span class="n">#ttn.mqtt.folder=</span>
+					<span class="n">#ttn.mqtt.clientid=</span>
+					<span class="n">#ttn.mqtt.username=</span>
+					<span class="n">#ttn.mqtt.password=</span>
+				</pre>
 			</div>
-		<p>Once it is running you should see IoT Assistant login page here: <a href="http://localhost:8080">http://localhost:8080</a>
-		<a href="images/Captura2.png">
-			<img  src="images/Captura2.png">
-		</a>
-		<p>In order to get notifications via <b>Telegram</b> and connect to your <b>MQTT</b> and <b>TTN</b> devices you need to edit the <b>application.properties</b> file first.
-        <h3>Application.properties</h2>
-		<div class="highlight">
-			<pre><span class="nb">#</span> <span class="n"># =========
-# TELEGRAM 
-# =========
-
-
-
-# =========
-# MQTT 
-# =========
-
-
-# =========
-# TTN
-# =========
-
-
-
-</span></pre>
-		</div>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
-        <h2>Run IoT Assistant</h2>
-		
-		<h5>Headline 5</h5>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>
-        <h6>Headline 6</h6>
-        <p>Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.</p>        </section>
-
+			
+			<p>Uncomment and fullfill the properties you need with your values. If not sure how to fullfill this properties see <a href="http://localhost:8080">IoT Assistant Settings</a></p>
+			<h2>Using IoT Asssistant</h2>
+			<p>Following pages will guide you using IoT Assistant:</p>
+				<ul>
+					<li><a href="#">Managing Sensors</li>
+					<li><a href="#">Managing Actuators</li>
+					<li><a href="#">Managing Cameras</li>
+					<li><a href="#">Managing GPS</li>
+					<li><a href="#">Graphs</li>
+					<li><a href="#">Rules</li>
+				</ul> 
+		</section>	
         <aside id="sidebar">
           <a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
             <small>Download</small>
@@ -104,7 +116,6 @@
           </a>
 		  <a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
           <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">IoT Assistant</a> is maintained by <a href="https://github.com/jasonlong">Miguel Bernabé</a>.</p>
-
         </aside>
       </div>
     </div>

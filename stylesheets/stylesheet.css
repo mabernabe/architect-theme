@@ -474,15 +474,19 @@ header h1 img{
 
 header .preview{
   
-  width: 380px;
+  width: 400px;
   display:inline-block;
   position: absolute;
-  top:-50px;
-  right:-30px;
+  top:-55px;
+  right:-50px;
+  background-color: white;
+  background-clip: padding-box;
+  border: 15px solid rgba(229,229,243,0.5);
+  border-radius: 15px;
 }
 
-.screenshots{
-  width: 300px;
+.highlight pre{
+	white-space: pre-line;
 }
 
 header h2 {
@@ -513,7 +517,7 @@ header h2 {
 }
 
 #main-content img {
-  max-width: 100%;
+  max-width: 90%;
 }
 
 aside#sidebar {
@@ -644,7 +648,7 @@ form {
 #main-content h1:before {
   padding-right: 0.3em;
   margin-left: -0.9em;
-  color: #9ddcff;
+  color: #9dc9e1;
   content: "/";
 }
 
@@ -660,7 +664,7 @@ form {
   padding-right: 0.3em;
   margin-left: -1.5em;
   content: "//";
-  color: #9ddcff;
+  color: #9dc9e1;
 }
 
 #main-content h3 {
@@ -677,7 +681,7 @@ form {
   padding-right: 0.3em;
   margin-left: -2em;
   content: "///";
-  color: #9ddcff;
+  color: #9dc9e1;
 }
 
 #main-content h4 {
@@ -693,7 +697,7 @@ h4:before {
   padding-right: 0.3em;
   margin-left: -2.8em;
   content: "////";
-  color: #9ddcff;
+  color: #9dc9e1;
 }
 
 #main-content h5 {
@@ -707,7 +711,7 @@ h5:before {
   padding-right: 0.3em;
   margin-left: -3.2em;
   content: "/////";
-  color: #9ddcff;
+  color: #9dc9e1;
 }
 
 #main-content h6 {
@@ -721,7 +725,7 @@ h6:before {
   padding-right: 0.3em;
   margin-left: -3.7em;
   content: "//////";
-  color: #9ddcff;
+  color: #9dc9e1;
 }
 
 p {
