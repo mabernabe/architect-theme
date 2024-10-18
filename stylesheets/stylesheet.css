@@ -474,7 +474,7 @@ header h1 img{
 
 header .preview{
   
-  width: 400px;
+  width: 390px;
   display:inline-block;
   position: absolute;
   top:-55px;
@@ -518,6 +518,7 @@ header h2 {
 
 #main-content img {
   max-width: 90%;
+  margin-top: -5px;
 }
 
 aside#sidebar {
