@@ -21,8 +21,8 @@
     <header>
       <div class="inner">	
         <h1><img src="images/favicon.png">IoT Assistant</h1>
-        <h2>Open-source web app intended to make it quick and easy for anyone to manage their programmed Internet of Things devices</h2>
-        <img class="preview" src="images/captura.jpg">
+        <h2>Open-source application intended to make it quick and easy to manage programmable Internet of Things devices</h2>
+        <img class="preview" src="images/preview.jpg">
       </div>
     </header>
 
@@ -30,25 +30,11 @@
       <div class="inner clearfix">
         <section id="main-content">
 			<h1>What is IoT Assistant?</h1>
-			<p>IoT Assistant is an open-source web application. It enables to manage sensors, actuators, GPS's and cameras interfaced via MQTT, HTTP or with <a href="https://www.thethingsnetwork.org/"><b>The Things Network</b></a>.</p>
+			<p>IoT Assistant is an open-source web application. It enables to manage sensors, actuators, GPS's and cameras interfaced via MQTT, HTTP or with <a href="https://www.thethingsnetwork.org/">The Things Network</a>.</p>
 			<h2>Java based</h2>
-			<p>The app is based in <b>Java Spring Boot</b> and its ready to be run on any machine hosting a JVM like any Windows, Mac or Linux computer or some cheap board (e.g. a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>) without the need to virtualize, install third party apps or use cloud services.</p>
+		<p>The app is based in Java Spring Boot and its ready to be run on any Windows, Mac, Linux computer or cheap board (e.g. a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>) hosting a JVM without the need to virtualize, install or use third party apps or cloud services.</p>
 			<h2>Quick and easy</h2>
-			<p>It should meet the needs of most users right from the start, prioritizing simplicity over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing or integrating it with third party devices like Aqara or Tuya devices.</p>
-			<h2>Main functionalities</h2>
-				<ul>
-					<li>Get sensors values</li>
-					<li>Get/set actuators values</li>
-					<li>Get cameras real time pictures</li>
-					<li>Get GPSs positions</li>
-					<li>Get notifications if some device fails communicating its state within some defined time period</li>
-					<li>Get devices battery level</li>
-					<li>Get customizables graphs to visualize sensor values change over time</li>
-					<li>Set automation rules
-					</li>
-				</ul> 
-			<p>Notifications are supported via web or <b>Telegram</b>. For a complete list of Use Cases see this.
-
+			<p>It should meet the needs of most users right from the start, prioritizing simplicity over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing or integrating it with third party like Aqara or Tuya devices.</p>
 			<h2>Getting started</h2>
 			<p>The only step needed to run IoT Assistant is to execute the <b>.jar</b> file provided. Execute it by double-click on it or via command line this way:</p>
 				<div class="highlight">
@@ -58,32 +44,128 @@
 				<div class="highlight">
 					<pre><span class="nb">#</span> <span class="n">java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED -jar iot-assistant-0.0.1.jar</span></pre>
 				</div>
-				<p>Once it is running you should see IoT Assistant login page at <a href="http://localhost:8080">http://localhost:8080</a>. Default login user and password is <b>admin iotassistant</b></p>
-			<a href="images/Captura2.png">
+				<p>Once it is running you should see a login page at <a href="http://localhost:8080">http://localhost:8080</a>. Default user and password is <i>admin iotassistant</i></p>
+				<p>Once logged in click on <i>System</i> then <i>Settings</i> to configure your Iot Assistant instance to connect to your devices. If you are not sure how to fullfill the settings see <a href="#">this guide.</a></p>
+			<a href="images/login.png">
 				<img  src="images/login.png">
 			</a>		
-			<p>Once logged in, click on <i>System -> Settings</i> to configure your Iot Assistant instance to get Telegram notifications and connect to your devices. If you are not sure how to fullfill the settings see <a href="#">this</a></p>
-			<a href="images/system.png">
+			
+			<a href="images/settings.png">
 				<img  src="images/settings.png">
 			</a>
 			<h2>Using IoT Asssistant</h2>
 			<p>Following pages will guide you using IoT Assistant:</p>
 				<ul>
-					<li><a href="#">Managing Sensors</li>
-					<li><a href="#">Managing Actuators</li>
-					<li><a href="#">Managing Cameras</li>
-					<li><a href="#">Managing GPS</li>
-					<li><a href="#">Managing Charts</li>
-					<li><a href="#">Managing Rules</li>
+					<li><a href="#">Managing Sensors</a></li>
+					<li><a href="#">Managing Actuators</a></li>
+					<li><a href="#">Managing Cameras</a></li>
+					<li><a href="#">Managing GPS</a></li>
+					<li><a href="#">Managing Charts</a></li>
+					<li><a href="#">Managing Rules</a></li>
 				</ul> 
-		</section>	
+			<p>Notifications are supported via web and Telegram. For a complete list of Use Cases see this.
+			
+			<h2>Examples</h2>
+			<ul class="projects-cards-box">
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/tracker.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Wireles car tracker</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/alarm.jpg') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Burglar alarm system</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/meteo.jpg') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Meteo station</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/watering.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Watering system</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/watering.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Self powered switch</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/watering.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Offline home assistant</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<br>
+		
+			
+		</section>
+
+
+		
+		
+		
         <aside id="sidebar">
-          <a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
-            <small>Download</small>
-            .jar file
-          </a>
-		  <a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
-          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">IoT Assistant</a> is maintained by <a href="https://github.com/jasonlong">Miguel Bernabé</a>.</p>
+			<a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<br>
+			<p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">IoT Assistant</a> is maintained by <a href="https://github.com/jasonlong">Miguel Bernabé</a>.</p>
+
         </aside>
       </div>
     </div>

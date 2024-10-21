@@ -517,7 +517,7 @@ header h2 {
 }
 
 #main-content img {
-  max-width: 90%;
+  max-width: 49%;
   margin-top: -5px;
 }
 
@@ -749,8 +749,7 @@ blockquote {
 }
 
 ul {
-  list-style-position: inside;
-  list-style: disc;
+  list-style-type: none;
   padding-left: 20px;
 }
 
@@ -764,6 +763,78 @@ dl dd {
   font-style: italic;
   font-weight: 100;
 }
+
+.navbar * {
+  font-size:17px;	
+  color: #6b798b !important;
+}
+
+.projects-cards-box {
+  margin: 40px 0 15px;
+  padding: 0;
+}
+
+.projects-cards-box li {
+    position: relative;
+    list-style: none;
+    float: left;
+	width: 50%;
+}
+
+.projects-card-image {
+    display: block;
+    width: 100%;
+    min-height: 130px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.projects-card-body {
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    background-color: #00000099;
+    padding-left: 5px;
+    width: 95%;
+    
+}
+
+.projects-card-title-and-meta {
+    margin: 0;
+	padding: 8px;
+    color: white;
+    line-height: 1.2;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', Helvetica, Arial, serif;
+}
+
+.projects-card-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+	font-weight: bold;
+    font-size: 16px;
+}
+
+.projects-card-meta {
+    font-size: .6em;
+    white-space: nowrap;
+    display: block;
+    padding-top: 4px;
+}
+
+.meta-pre {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+
 
 /* MISC */
 .clearfix:after {
