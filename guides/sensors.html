@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png">IoT Assistant</h1>
+        <h2>Open-source application intended to make it quick and easy to manage programmable Internet of Things devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>Managing sensors</h1>
+			<h2>Installing a MQTT sensor</h2>
+			<p>Click on "Install" over the left navigation bar, then click on "Install sensor" to open the wizard that will guide you trough this process.</p>
+			<p>1 - First Wizard step is to provide a name and description for the sensor</p>
+			<a href="../images/sensors/wizard1.png">
+				<img  src="../images/sensors/wizard1.png">
+			</a>
+			<p>2 - Then we select the sensor properties with its units, in this case we select Temperature C, Humidity % and Air Pressure Pa an click <b>Next</b></p>
+			<a href="../images/sensors/wizard2.png">
+				<img  src="../images/sensors/wizard2.png">
+			</a>
+			</p>3 - In this step we are requested to select an interface We are installing a MQTT sensor so we select MQTT an click <b>Next</b></p>
+			<a href="../images/sensors/wizard3.png">
+				<img  src="../images/sensors/wizard3.png">
+			</a>
+			<p>4 - In this last step we confirm the information provided and optionally can set a watchdog interval, this is to get notifications if the sensor fails communicating its value within a predefined period time.<p>
+			<a href="../images/sensors/wizard4.png">
+				<img  src="../images/sensors/wizard4.png">
+			</a>
+			<p>5 - We click on <b>Finish</b> to proceed and if everything goes well we are redirected to the sensors page where the sensors installed are displayed.</p>
+			<p>From this page, sensor values are displayed as "Unknown" if no value has been yet published by the sensor otherwise its displayed the last value published with its date. From this page its also possible to disable/enable the watchdog for that sensor or delete it.
+			<a href="../images/sensors/wizard7.png">
+				<img  src="../images/sensors/wizard7.png">
+			</a>
+			<h2>The MQTT sensor</h2>
+			<p>The sensor should publish the values to same broker IoT Assistant is connected (see this guide to configure your IoT Assistant settings).</p>
+			<h3>Topic</h3>
+			<p>The sensor values should be published to the topic <i>sensor/{sensor name}</i> being the sensor name the same name we provided during the installation. For the sensor above installed the topic would be:</p>
+			<div class="highlight">
+				<pre><span class="n">sensor/Living room</span></pre>
+			</div>
+			<h3>Value</h3>
+			<p>The value published by the sensor to the topic should be a JSON string containing all sensor properties we select during its installation with their current values. A value could be either a real value (e.g "33.47") for a float property or a boolean value ("true" or "false) for a boolean property.</p>		
+			<p>For the sensor installed above this would be an example of a valid published value:</p>
+			<div class="highlight">
+				<pre><span class="n">{"Temperature C" : "28.25", "Humidity %" : "53", "Air Pressure Pa": 57875}</span></pre>
+			</div>
+			<p>Following is an example of a valid value for some sensor having a boolean properties. You can identify boolean or real properties during sensor installation cause boolean ones dont include a unit in its name:</p>
+			<div class="highlight">
+				<pre><span class="n">{"Temperature C" : "28.25", "Motion" : "true"}</span></pre>
+			</div>
+			<h3>Arduino code</h3>
+			<h2>Installing a The Things Network sensor</h2>
+			<p>To install a sensor interfaced with <a href="https://www.thethingsnetwork.org/">The Things Network</a>, we follow the same steps that for installing a MQTT sensor, but when requested the sensor interface we select The Things Network instead MQTT.</p>
+			<a href="../images/sensors/wizard8.png">
+				<img  src="../images/sensors/wizard8.png">
+			</a>
+			<p>When we select The Things Network interface, we are requested the device end id in the next step</p>
+			<a href="../images/sensors/wizard9.png">
+				<img  src="../images/sensors/wizard9.png">
+			</a>
+			<p>The End Device Id is one we provided when installing the sensor in The Things Newtork</p>
+			<a href="../images/sensors/wizard10.png">
+				<img  src="../images/sensors/wizard10.png">
+			</a>
+			<h2>The Things network sensor</h2>
+			<h3>Value</h3>
+			<p>A Things Network device should publish binary values. For IoT Assistant to understand the sensor value it should published using this format</p>
+			<div class="highlight">
+				<pre><span class="n">{propertyId}{value}</span></pre>
+			</div>
+			<h3>Arduino code</h3>
+		</section>
+
+
+		
+		
+		
+        <aside id="sidebar">
+			<a href="https://github.com/jasonlong/architect-theme/archive/master.tar.gz" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<br>
+			<p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">IoT Assistant</a> is maintained by <a href="https://github.com/jasonlong">Miguel Bernabé</a>.</p>
+
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>
