@@ -517,8 +517,11 @@ header h2 {
 }
 
 #main-content img {
-  max-width: 49%;
-  margin-top: -5px;
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
+  border-radius: 15px;
 }
 
 aside#sidebar {
@@ -750,7 +753,27 @@ blockquote {
 
 ul {
   list-style-type: none;
-  padding-left: 20px;
+  padding-left: 0px;
+}
+
+.guides-list {
+  margin-top: -10px;
+}
+
+.guides-list li {
+  margin: 0;
+  padding: 2px 0px 2px 0px;
+  list-style: none;
+  background-image: url("../images/favicon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
+  padding-left: 25px;
+}
+
+.guides-list li a{
+  color: #4c6683;
+
 }
 
 ol {

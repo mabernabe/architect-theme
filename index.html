@@ -32,7 +32,7 @@
 			<h1>What is IoT Assistant?</h1>
 			<p>IoT Assistant is an open-source web application. It enables to manage sensors, actuators, GPS's and cameras interfaced via MQTT, HTTP or with <a href="https://www.thethingsnetwork.org/">The Things Network</a>.</p>
 			<h2>Java based</h2>
-		<p>The app is based in Java Spring Boot and its ready to be run on any Windows, Mac, Linux computer or cheap board (e.g. a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>) hosting a JVM without the need to virtualize, install or use third party apps or cloud services.</p>
+			<p>The app is based in Java Spring Boot and its ready to be run locally on any Windows, Mac, Linux computer or cheap board (e.g. a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a>) hosting a JVM without the need to virtualize, perform complicated setups, install or use third party apps or cloud services.</p>
 			<h2>Quick and easy</h2>
 			<p>It should meet the needs of most users right from the start, prioritizing simplicity over flexibility while it still allow developers to add more complexity if they have particular requirements such as customizing or integrating it with third party like Aqara or Tuya devices.</p>
 			<h2>Getting started</h2>
@@ -45,17 +45,14 @@
 					<pre><span class="nb">#</span> <span class="n">java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED -jar iot-assistant-0.0.1.jar</span></pre>
 				</div>
 				<p>Once it is running you should see a login page at <a href="http://localhost:8080">http://localhost:8080</a>. Default user and password is <i>admin iotassistant</i></p>
-				<p>Once logged in click on <i>System</i> then <i>Settings</i> to configure your Iot Assistant instance to connect to your devices. If you are not sure how to fullfill the settings see <a href="#">this guide.</a></p>
-			<a href="images/login.png">
-				<img  src="images/login.png">
-			</a>		
-			
-			<a href="images/settings.png">
-				<img  src="images/settings.png">
+				<p>Once logged in click on <i>System</i> then <i>Settings</i> to configure your Iot Assistant instance to get Telegram notifications and connect to your devices. If you are not sure how to fullfill the settings see <a href="#">this guide.</a></p>
+			<a href="images/starting.jpg">
+				<img  src="images/starting.jpg">
 			</a>
+			<br>
 			<h2>Using IoT Asssistant</h2>
 			<p>Following pages will guide you using IoT Assistant:</p>
-				<ul>
+				<ul class="guides-list">
 					<li><a href="#">Managing Sensors</a></li>
 					<li><a href="#">Managing Actuators</a></li>
 					<li><a href="#">Managing Cameras</a></li>
@@ -63,10 +60,40 @@
 					<li><a href="#">Managing Charts</a></li>
 					<li><a href="#">Managing Rules</a></li>
 				</ul> 
-			<p>Notifications are supported via web and Telegram. For a complete list of Use Cases see this.
-			
-			<h2>Examples</h2>
+		<h2>Architecture</h2>
+		<p>This application was developed in the context of this <a href="https://escuela.it/cursos/practicas-desarrollo-aplicaciones-tutorizadas">trainning course</a> mentored by <a href="https://es.linkedin.com/in/luisfernandezmunyozLuis">Luis Fernandez Muñoz</a> at <a href="https://escuela.it/">EscuelaIt</a>. 
+		<p>Development process used is <a href="https://en.wikipedia.org/wiki/Rational_unified_process">RUP</a>. The artifacts produced by the RUP activities were used to document the architecture using <a href="https://en.wikipedia.org/wiki/4%2B1_architectural_view_model">Philip Krutchen 4+1 View Model</a>. You can get the UML diagrams <a href="https://en.wikipedia.org/wiki/Rational_unified_process">here.</a></p>
+		<h2>ESP32 code</h2>
+		<p>For programable IoT devices some microcontroller attached to some transductor is usually used. In this context, the microcontroller behaviour consist in reading the transductor value via GPIO, UART, SPI... and publishing this value via some network interface, and perhaps sleeping in between to save battery.</p> 
+		<p>ESP32 is a very popular microcontroller nowadays because its cheap and has wireless capabilities. I wrote libraries and Arduino projects examples to facilitate devices development. Code and documentation is provided <a href="https://en.wikipedia.org/wiki/Rational_unified_process">here.</a></p>
+			<h2>Projects with Iot Assistant</h2>
 			<ul class="projects-cards-box">
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/watering.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Watering system</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/alarm.png') center no-repeat; background-size: cover;"></a>
+						<div class="projects-card-body">
+							 <p class="projects-card-title-and-meta">
+								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Burglar alarm system</a>
+								<span class="projects-card-meta"
+									<span class="meta-pre"></span>
+									<span class="page_meta-readtime">4 minute read</span>
+							 </p>
+						</div>
+					</div>
+				</li>
 				<li>
 					<div>
 						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/tracker.png') center no-repeat; background-size: cover;"></a>
@@ -82,36 +109,10 @@
 				</li>
 				<li>
 					<div>
-						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/alarm.jpg') center no-repeat; background-size: cover;"></a>
-						<div class="projects-card-body">
-							 <p class="projects-card-title-and-meta">
-								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Burglar alarm system</a>
-								<span class="projects-card-meta"
-									<span class="meta-pre"></span>
-									<span class="page_meta-readtime">4 minute read</span>
-							 </p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div>
 						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/meteo.jpg') center no-repeat; background-size: cover;"></a>
 						<div class="projects-card-body">
 							 <p class="projects-card-title-and-meta">
 								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Meteo station</a>
-								<span class="projects-card-meta"
-									<span class="meta-pre"></span>
-									<span class="page_meta-readtime">4 minute read</span>
-							 </p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div>
-						<a href="./AI-and-intellectual-property.html" title="Who owns the copyright for an AI generated creative work?" class="projects-card-image" style="background: url('images/watering.png') center no-repeat; background-size: cover;"></a>
-						<div class="projects-card-body">
-							 <p class="projects-card-title-and-meta">
-								<a href="./AI-and-intellectual-property.html" class="projects-card-link">Watering system</a>
 								<span class="projects-card-meta"
 									<span class="meta-pre"></span>
 									<span class="page_meta-readtime">4 minute read</span>
@@ -146,9 +147,6 @@
 					</div>
 				</li>
 			</ul>
-			<br>
-		
-			
 		</section>
 
 
